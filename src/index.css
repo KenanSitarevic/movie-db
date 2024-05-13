@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-active {
+  background-color: #1FBAB8;
+}
+
+.bg-inactive {
+  background-color: #F0F0F3;
+}
+
+.bg-dark {
+  background-color: #353535;
+}
+
+.color-white {
+  color: #FFF;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.padding-1 {
+  padding: 1em;
+}
+
+.padding-half {
+  padding: 0.5em;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-1 {
+  margin: 1em;
+}
+
+.border-0 {
+  border: 0;
+}
+
+.gap-1 {
+  gap: 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-title {
+  font-size: 1.5em;
+}
+
+.font-subtitle {
+  font-size: 1em;
+}
+
+.outline-active {
+  outline: 2px solid #1FBAB8;
+}
+
+.movie-card-image {
+  height: 300px;
+  background-size: cover;
+}
+
+.movie-card {
+  min-width: 25%;
+  box-shadow: 2px 2px 5px 5px #0000001c;
+}
+
+
