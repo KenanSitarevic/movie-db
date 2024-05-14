@@ -110,6 +110,12 @@ body {
   background-size: cover;
 }
 
+.movie-detail-image {
+  height: 500px;
+  width: 500px;
+  background-size: cover;
+}
+
 .movie-card {
   min-width: 25%;
   max-width: 25%;
