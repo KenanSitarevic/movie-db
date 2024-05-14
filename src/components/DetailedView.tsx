@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { ActiveTab } from '../types/activeTab'
-import { Movie } from '../types/movies'
-import { Show } from '../types/shows'
 
 import { getMovieDetails, getShowDetails } from '../apis'
+import { MovieDetailed } from '../types/movieDetailed'
+import { ShowDetailed } from '../types/showDetailed'
 
 const DetailedView = () => {
   const [type, setType] = useState(ActiveTab.TVshows)
   const [loading, setLoading] = useState(false)
-  const [movie, setMovie] = useState<Movie>()
-  const [show, setShow] = useState<Show>()
+  const [movie, setMovie] = useState<MovieDetailed>()
+  const [show, setShow] = useState<ShowDetailed>()
   const location = useLocation();
 
   const fetchMovieDetails = async (id:string) => {
@@ -58,6 +58,7 @@ const DetailedView = () => {
       <div className='bg-dark color-white'>
         <h1 className='margin-0 padding-1 font-title'>Movies DB</h1>
       </div>
+      {loading && <h3>loading</h3>}
 
       { type == ActiveTab.TVshows && <div className='full-width text-center'>
         <h2>{show?.name}</h2>
@@ -65,10 +66,7 @@ const DetailedView = () => {
         <h3>Rating: {show?.vote_average}</h3>
         <div className="movie-card-image" style={{backgroundImage: 'url(https://image.tmdb.org/t/p/w500/' + show?.poster_path + ')'}} />
         <p>{show?.overview}</p>
-
       </div>}
-
-
       { type == ActiveTab.Movies && <div className='full-width text-center'>
         <h2>{movie?.title}</h2>
         {movie?.title != movie?.original_title && <h3>Original title: {movie?.original_title}</h3>}

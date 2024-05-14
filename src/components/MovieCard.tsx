@@ -1,4 +1,4 @@
-const MovieCard = (props) => {
+const MovieCard = (props: {title:string, desc:string, img:string, handleClick:()=>void}) => {
   
   return (
     <div onClick={props.handleClick} className="flex column padding-1 movie-card cursor-pointer">

@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
+
 import { ActiveTab } from '../types/activeTab'
 import { Movie } from '../types/movies'
 import { Show } from '../types/shows'
-
 import { getTopTenMovies, getTopTenShows, searchMovies, searchShows } from '../apis'
-
 import TabButton from "./TabButton"
 import SearchBar from './SearchBar'
 import MovieCard from './MovieCard'

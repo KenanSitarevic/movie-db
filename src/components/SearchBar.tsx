@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import debounce from 'lodash.debounce';
 
-const SearchBar = (props) => {
+const SearchBar = (props: {search : (input:string)=>void}) => {
 
   const handleDebounceFn = (inputValue:string) => {
      props.search(inputValue)
