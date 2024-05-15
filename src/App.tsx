@@ -1,42 +1,23 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './components/Home'
-import DetailedView from "./components/DetailedView";
-import PageNotFound from './components/PageNotFound';
-
-const router = createBrowserRouter([
-  {
-    element: <Home />,
-    path: "/",
-    
-    // loader: async ({ request, params }) => {
-    //   return fetch(
-    //     `/fake/api/teams/${params.teamId}.json`,
-    //     { signal: request.signal }
-    //   );
-    // },
-
-    errorElement: <PageNotFound />,
-  },
-  {
-    element: <DetailedView />,
-    path: "/movie/:id",
-
-    errorElement: <PageNotFound />,
-  },
-  {
-    element: <DetailedView />,
-    path: "/show/:id",
-
-    errorElement: <PageNotFound />,
-  },
-  {
-    path: '*',
-    element: <PageNotFound />,
-  },
-]);
-
+import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes'
+import { GlobalContext } from './contexts/GlobalContext';
+import { Movie } from './types/movies';
+import { Show } from './types/shows';
+import { ActiveTab } from './types/activeTab';
 function App() {
-  return <RouterProvider router={router} />;
+  const [globalActiveTab, setGlobalActiveTab] = useState<ActiveTab>(ActiveTab.TVshows)
+  const [searchInput, setSearchInput] = useState('')
+  const [topMovies, setTopMovies] = useState<Movie[]>([])
+  const [topShows, setTopShows] = useState<Show[]>([])
+
+  const data = {globalActiveTab, setGlobalActiveTab, searchInput, setSearchInput, topMovies, setTopMovies, topShows, setTopShows}
+  
+  return (
+    <GlobalContext.Provider value={data}>
+      <RouterProvider router={router} />
+    </GlobalContext.Provider>
+  )
 }
 
 export default App;

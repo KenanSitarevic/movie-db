@@ -11,6 +11,7 @@ export interface Show {
   poster_path: string,
   first_air_date: string,
   name: string,
+  title: string,
   vote_average: number,
   vote_count: number
 }

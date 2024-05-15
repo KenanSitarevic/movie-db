@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Movie } from './types/movies';
 import { Show } from './types/shows';
+import { MovieVideo } from './types/movieVideo';
 import { MovieDetailed } from './types/movieDetailed';
 import { ShowDetailed } from './types/showDetailed';
 
@@ -32,7 +33,7 @@ export async function getTopTenShows(): Promise<Show[]> {
   return axios
     .request(options)
     .then(function (response) {
-      return response.data?.results.slice(0, 10)
+      return response.data?.results.slice(0, 10).map((item: Show) => ({ ...item, title: item.name }))
     })
     .catch(function (error) {
       console.error(error);
@@ -52,9 +53,34 @@ export async function getMovieDetails(id:string): Promise<MovieDetailed> {
     });
 }
 
+export async function getMovieVideos(id:string): Promise<MovieVideo[]> {
+  const options = {..._options, url: _options.url + `movie/${id}/videos?language=en-US`};
+
+  return axios
+    .request(options)
+    .then(function (response) {
+      return response.data
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+
 export async function getShowDetails(id:string): Promise<ShowDetailed> {
   const options = {..._options, url: _options.url + `tv/${id}?language=en-US`};
 
+  return axios
+    .request(options)
+    .then(function (response) {
+      return response.data
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+
+export async function getShowVideos(id:string): Promise<MovieVideo[]> {
+  const options = {..._options, url: _options.url + `tv/${id}/videos?language=en-US`};
   return axios
     .request(options)
     .then(function (response) {
@@ -84,7 +110,7 @@ export async function searchShows(searchInput: string): Promise<Show[]> {
   return axios
     .request(options)
     .then(function (response) {
-      return response.data?.results.slice(0, 10)
+      return response.data?.results.slice(0, 10).map((item: Show) => ({ ...item, title: item.name }))
     })
     .catch(function (error) {
       console.error(error);
