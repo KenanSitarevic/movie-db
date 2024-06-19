@@ -130,7 +130,7 @@ const Home = () => {
   return (
     <div className='full-screen'>
       <div className='bg-dark color-white'>
-        <h1 className='margin-0 padding-1 font-title'>Movies DB</h1>
+        <h1 data-test="app-header" className='margin-0 padding-1 font-title'>Movies DB</h1>
       </div>
       <div className='flex'>
         <TabButton name="Movies" isActive={activeTab == ActiveTab.Movies} handleClick={() => {changeTab(ActiveTab.Movies)}} />

@@ -103,7 +103,7 @@ const DetailedView = () => {
                     />}
 
       { type == ActiveTab.TVshows && !loading && <div className='full-width text-center'>
-        <h2>{show?.name} ({new Date(show?.first_air_date).getFullYear()})</h2>
+        <h2 data-test={show?.title}>{show?.name} ({new Date(show?.first_air_date).getFullYear()})</h2>
         {show?.name != show?.original_name && <h3>Original title: {show?.original_name}</h3>}
         <h4 className='italic color-light font-thin'>{movie?.tagline}</h4>
         <h3>Rating: {show?.vote_average}</h3>
@@ -119,7 +119,7 @@ const DetailedView = () => {
 
       
       { type == ActiveTab.Movies && !loading && <div className='full-width text-center'>
-        <h2>{movie?.title} ({new Date(movie?.release_date).getFullYear()})</h2>
+        <h2 data-test={movie?.title} >{movie?.title} ({new Date(movie?.release_date).getFullYear()})</h2>
         {movie?.title != movie?.original_title && <h3>Original title: {movie?.original_title}</h3>}
         <h4 className='italic color-light font-thin'>{movie?.tagline}</h4>
         <h3>Rating: {movie?.vote_average}</h3>

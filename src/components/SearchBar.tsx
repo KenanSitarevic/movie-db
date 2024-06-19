@@ -19,7 +19,7 @@ const SearchBar = (props: {search : (input:string)=>void}) => {
   }
 
   return (
-    <input value={searchInput} type="text" onChange={handleSearch} className='full-width font-subtitle padding-half margin-0 outline-active border-0' placeholder='Search...' />
+    <input data-test="search-bar" value={searchInput} type="text" onChange={handleSearch} className='full-width font-subtitle padding-half margin-0 outline-active border-0' placeholder='Search...' />
   )
 }
 
